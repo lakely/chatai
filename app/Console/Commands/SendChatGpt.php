@@ -26,7 +26,7 @@ class SendChatGpt extends Command
      */
     public function handle(): void
     {
-        $this->image();
+        $this->chat();
     }
 
     private function test()
@@ -40,7 +40,7 @@ class SendChatGpt extends Command
     {
         $result = OpenAI::completions()->create([
             'model' => 'text-davinci-003',
-            'prompt' => '给我讲一个故事?',
+            'prompt' => '帮我做一份真皮包包的销售的商业计划书',
             'max_tokens' => 2000,
             //'n' => 3
         ]);
@@ -52,7 +52,7 @@ class SendChatGpt extends Command
     private function image()
     {
         $response = OpenAI::images()->create([
-            'prompt' => "good morning",
+            'prompt' => "老板姓刘，主要经营头层牛皮，帮我制作一个logo",
             'n' => 1,
             'size' => '512x512',
             'response_format' => 'url',
